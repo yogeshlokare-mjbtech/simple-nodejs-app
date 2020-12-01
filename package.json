@@ -1,0 +1,33 @@
+{
+  "name": "simple-node-js-app",
+  "version": "1.0.0",
+  "description": "This is Simple node js app for CI/CD deployment",
+  "main": "server.js",
+  "scripts": {
+    "test":"mocha",
+    "start": "nodemon server"
+  },
+  "keywords": [
+    "Node",
+    "JS",
+    "Express",
+    "JS",
+    "Rest",
+    "API",
+    "MySQL",
+    "Backend"
+  ],
+  "author": "Yogesh Bapu Lokare",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "express": "^4.17.1",
+    "mocha": "^8.2.1",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
