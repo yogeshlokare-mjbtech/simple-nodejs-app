@@ -45,7 +45,7 @@ describe("Customers", function() {
           .send(books[book])
           .end((err, res) => {
             res.should.have.status(200);
-            console.log("Response Body:", res.body);
+            console.log("Response Body customer:", res.body);
           });
       }
       done();
