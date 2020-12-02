@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // simple route
 app.get("/", (req, res) => {
   res.json({
-    message: "Welcome to Node JS REST API application.",
+    message: "Welcome to Simple Node JS REST API Application.",
     date: new Date().toLocaleString()
   });
 });
