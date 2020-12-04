@@ -20,5 +20,12 @@ pipeline {
                 sh './jenkins/scripts/test.sh'
             }
         }
+         stage('Deliver') {
+            steps {
+                sh 'chmod +rx ./jenkins/scripts/deliver.sh'
+                sh './jenkins/scripts/deliver.sh'
+            }
+        }
+
     }
 }
