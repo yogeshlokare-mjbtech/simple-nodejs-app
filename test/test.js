@@ -6,7 +6,7 @@ let should = chai.should();
 
 chai.use(chaiHttp);
 describe("Customers", function() {
-  describe("DELETE ALL", function() {
+  /*describe("DELETE ALL", function() {
     it("should remove all first", done => {
       console.log("Deleting all data in db first.");
       chai
@@ -22,7 +22,7 @@ describe("Customers", function() {
           done();
         });
     });
-  });
+  });*/
 
   describe("CRUD OPERATIONS", function() {
     var books = [
@@ -37,7 +37,8 @@ describe("Customers", function() {
         active: 0
       }
     ];
-    it("Should add Customers in DB", done => {
+    console.log("books", books)
+    /*it("Should add Customers in DB", done => {
       for (book in books) {
         chai
           .request(server)
