@@ -4,8 +4,10 @@
   "description": "This is Simple node js app for CI/CD deployment",
   "main": "server.js",
   "scripts": {
-    "test":"mocha",
-    "start": "nodemon server"
+    "test": "mocha",
+    "stop": "pm2 stop all",
+    "start": "pm2 start server.js --name NODE_Backend",
+    "sonar": "node sonar-project.js"
   },
   "keywords": [
     "Node",
@@ -28,6 +30,7 @@
     "mysql": "^2.18.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.6"
+    "nodemon": "^2.0.6",
+    "sonarqube-scanner": "^2.8.0"
   }
 }
