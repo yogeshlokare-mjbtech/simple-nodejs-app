@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "mocha",
-    "stop": "pm2 stop all",
+    "stop": "pm2 stop NODE_Backend",
     "start": "pm2 start server.js --name NODE_Backend",
     "sonar": "node sonar-project.js"
   },
