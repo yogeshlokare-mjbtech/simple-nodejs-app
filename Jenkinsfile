@@ -9,7 +9,6 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-				git branch: 'main', url: 'https://github.com/yogeshlokare-mjbtech/simple-nodejs-app.git'
                 bat 'npm install'
             }
         }
