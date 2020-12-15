@@ -12,6 +12,11 @@ pipeline {
                 bat 'npm install'
             }
         }
+        stage('Sonar Analysis') {
+            steps {
+                bat 'npm run sonar'
+            }
+        }
         stage('Test') {
             steps{
                 bat 'npm test' 
