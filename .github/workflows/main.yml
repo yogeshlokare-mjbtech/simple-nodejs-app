@@ -29,11 +29,11 @@ jobs:
       - name: Run sonarqube
         env:
       # to get access to secrets.SONAR_TOKEN, provide GITHUB_TOKEN
-        GITHUB_TOKEN: 5a43125e17eeec7a88b27c31eeb2428b709a61f5
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: sonar-scanner
           -Dsonar.login=${{ secrets.SONAR_TOKEN }}
           -Dsonar.organization=1corp
-          -Dsonar.host.url=https://3d706b28142c.ngrok.io
+          -Dsonar.host.url=https://sonarcloud.io/
           -Dsonar.projectKey=sonar-scanner-action
      
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
