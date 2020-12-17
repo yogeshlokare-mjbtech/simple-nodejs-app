@@ -22,38 +22,15 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-     # Use an existing action, you can look in the market place to find what you need and how to use it, to setup the sonar scanner
-      - name: Setup sonar scanner
-        uses: warchant/setup-sonar-scanner@v1
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
 
-      # Another existing action, this one to checkout the repository
-      - name: 'Checkout repository on branch: ${{ github.REF }}'
-        uses: actions/checkout@v2
-        with:
-          ref: ${{ github.REF }}
-          fetch-depth: 0
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: echo Hello, world!
 
-      # Conditional execution can be done, in this case the parameter to use with sonar scanner are different if we are analyzing master or a branch
-      - if: endsWith(github.REF, '/main') != true
-        name: 'Run an analysis of the ${{ github.REF }} branch'
-        env:
-          # to get access to secrets.SONAR_TOKEN, provide GITHUB_TOKEN
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: sonar-scanner
-          -Dsonar.host.url=${{ secrets.SONAR_URL }}
-          -Dsonar.login=${{ secrets.SONAR_TOKEN }}
-          -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
-          -Dsonar.branch.name=${GITHUB_REF:11}
-          -Dsonar.scm.provider=git
-
-      - if: endsWith(github.REF, '/main') == true
-        name: 'Run an analysis of the master branch'
-        env:
-          # to get access to secrets.SONAR_TOKEN, provide GITHUB_TOKEN
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: sonar-scanner
-          -Dsonar.host.url=${{ secrets.SONAR_URL }}
-          -Dsonar.login=${{ secrets.SONAR_TOKEN }}
-          -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
-          -Dsonar.scm.provider=git
-          -Dsonar.java.binaries=/tmp
+      # Runs a set of commands using the runners shell
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
